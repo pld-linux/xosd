@@ -84,7 +84,9 @@ autoconf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir}/xmms/General,%{_includedir},%{_mandir}/man3}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT m4datadir=%{_datadir}/aclocal/
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	m4datadir=%{_aclocaldir}
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
@@ -106,14 +108,14 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xosd-config
-%attr(644,root,root) %{_libdir}/*.la
-%attr(644,root,root) %{_libdir}/*.so
-%attr(644,root,root) %{_libdir}/xmms/General/libxmms_osd.la
+%attr(755,root,root) %{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/*.so
+%attr(755,root,root) %{_libdir}/xmms/General/libxmms_osd.la
 %{_includedir}/*.h
-%{_datadir}/aclocal/libxosd.m4
+%{_aclocaldir}/libxosd.m4
 %{_mandir}/man3/*.3*
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/xmms/General/libxmms_osd.a
-%attr(644,root,root) %{_libdir}/libxosd.a
+%{_libdir}/xmms/General/libxmms_osd.a
+%{_libdir}/libxosd.a
