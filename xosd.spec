@@ -13,6 +13,7 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	gtk+-devel
 BuildRequires:	xmms-devel
+BuildConflicts:	xosd-devel < 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
