@@ -1,24 +1,29 @@
+#
+# Conditional build:
+# _without_xmms		- without XMMS plugin
+#
 Summary:	On Screen Display (like in TV) for X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	2.1.0
-Release:	1
+Version:	2.2.2
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
-Patch0:		%{name}-include.patch
+# Source0-md5:	b385858fb4ddeff0875fa5b4dc372e42
 URL:		http://www.ignavus.net/software.html
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gdk-pixbuf-devel >= 0.22.0
 BuildRequires:	gtk+-devel
 BuildRequires:	libtool
-BuildRequires:	xmms-devel
-BuildRequires:	gdk-pixbuf-devel 
+%{!?_without_xmms:BuildRequires:	xmms-devel}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libxosd2
 
-%define			_xmms_plugin_dir	%(xmms-config --general-plugin-dir)
+%define		_prefix		/usr/X11R6
+%define		_xmms_plugin_dir	%(xmms-config --general-plugin-dir)
 
 %description
 XOSD allows On Screen Displaying on your monitor under X11. It could
@@ -74,16 +79,18 @@ odgrywanej piosence, g³o¶no¶ci, itd.
 
 %prep
 %setup  -q
-%patch0 -p1
 
 %build
 rm -f missing
+%{?_without_xmms:echo 'AC_DEFUN([AM_PATH_XMMS],[])' >> acinclude.m4}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-plugindir=%{_xmms_plugin_dir}
+	%{!?_without_xmms:--with-plugindir=%{_xmms_plugin_dir}} \
+	%{?_without_xmms:--disable-new-plugin}
+
 %{__make}
 
 %install
@@ -107,18 +114,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libxosd.so.*.*.*
 %{_mandir}/man1/osd_cat.1*
 
-%files -n xmms-general-xosd
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_xmms_plugin_dir}/libxmms_osd*.so*
-%dir %{_datadir}/xosd
-%{_datadir}/xosd/*.png
-
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xosd-config
-%{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.so
-%{_xmms_plugin_dir}/libxmms_osd*.la
+%{_libdir}/*.la
 %{_includedir}/*.h
 %{_aclocaldir}/libxosd.m4
 %{_mandir}/man3/*.3*
@@ -127,3 +127,11 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libxosd.a
+
+%if 0%{!?_without_xmms:1}
+%files -n xmms-general-xosd
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_xmms_plugin_dir}/libxmms_osd*.so*
+%dir %{_datadir}/xosd
+%{_datadir}/xosd/*.png
+%endif
