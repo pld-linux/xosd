@@ -89,7 +89,7 @@ Requires:	xmms >= 1.2.7
 Plugin for XMMS enabling On Screen Display (OSD) showing names of
 played files, volume, etc.
 
-%description -n xmms-general-xosd
+%description -n xmms-general-xosd -l es
 Plugin para XMMS que habilita mostrar sobre la pantalla los nombres de
 los ficheros reproducidos, el volumen, etc.
 
