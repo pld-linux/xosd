@@ -1,7 +1,7 @@
 Summary:	On Screen Display (like in TV) for X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	1.0.0
+Version:	1.0.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -84,7 +84,7 @@ autoconf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir}/xmms/General,%{_includedir},%{_mandir}/man3}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT m4datadir=%{_datadir}/aclocal/
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
@@ -110,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644,root,root) %{_libdir}/*.so
 %attr(644,root,root) %{_libdir}/xmms/General/libxmms_osd.la
 %{_includedir}/*.h
+%{_datadir}/aclocal/libxosd.m4
 %{_mandir}/man3/*.3*
 
 %files static
