@@ -15,6 +15,7 @@ BuildRequires:	gtk+-devel
 BuildRequires:	libtool
 BuildRequires:	xmms-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libxosd2
 
 %define			_xmms_plugin_dir	%(xmms-config --general-plugin-dir)
 
@@ -35,6 +36,7 @@ Summary:	Header files and documentation for developers of XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Obsoletes:	libxosd2-devel
 
 %description devel
 Files allowing development of xosd-based applications.
