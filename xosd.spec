@@ -5,11 +5,6 @@ Version:	0.7.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt):	X11/Aplicações
-Group(pt_BR):	X11/Aplicações
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
 URL:		http://www.ignavus.net/software.html
 BuildRequires:	XFree86-devel
@@ -35,13 +30,6 @@ pokazuj±ca, co tak naprawdê potrafi XOSD.
 Summary:	Header files and documentation for developers of XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
-Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 
 %description devel
@@ -54,8 +42,6 @@ Pliki pozwalaj±ce tworzyæ programy w oparciu o xosd.
 Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
 Summary(pl):	Wtyczka dla XMMS, która umo¿liwa wy¶wietlanie informacji na ekranie (OSD)
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Requires:	%{name} = %{version}
 
 %description -n xmms-general-xosd
