@@ -1,7 +1,7 @@
 Summary:	On Screen Display (like in TV) for X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
