@@ -102,4 +102,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/xosd.h
-%{_mandir}/man3/xosd.3.gz
+%{_mandir}/man3/xosd.3*
