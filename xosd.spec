@@ -2,7 +2,7 @@ Summary:	On Screen Display (like in TV) for X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.0.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
@@ -114,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.so
 %attr(755,root,root) %{_libdir}/xmms/General/libxmms_osd.la
+%attr(755,root,root) %{_datadir}/xosd/*.png
 %{_includedir}/*.h
 %{_aclocaldir}/libxosd.m4
 %{_mandir}/man3/*.3*
