@@ -77,8 +77,7 @@ rm -f missing
 aclocal
 autoconf
 %{__automake}
-%configure \
-	--disable-static
+%configure
 %{__make}
 
 %install
