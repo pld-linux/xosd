@@ -16,8 +16,6 @@ BuildRequires:	libtool
 BuildRequires:	xmms-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 XOSD allows On Screen Displaying on your monitor under X11. It could
