@@ -1,12 +1,11 @@
-%define		_pre	pre2
 Summary:	On Screen Display (like in TV) for X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	1.0.0
-Release:	%{_pre}.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://www.ignavus.net/%{name}-%{version}-%{_pre}.tar.gz
+Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
 URL:		http://www.ignavus.net/software.html
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -70,7 +69,7 @@ Wtyczka dla XMMS pokazuj±ca na ekranie (OSD) aktualne informacje o
 odgrywanej piosence, g³o¶no¶ci, itd.
 
 %prep
-%setup  -q -n %{name}-%{version}-%{_pre}
+%setup  -q
 
 %build
 rm -f missing
@@ -106,9 +105,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/libxosd-config
-%attr(644,root,root) %{_libdir}/libxosd.la
-%attr(644,root,root) %{_libdir}/libxosd.so
+%attr(755,root,root) %{_bindir}/xosd-config
+%attr(644,root,root) %{_libdir}/*.la
+%attr(644,root,root) %{_libdir}/*.so
 %attr(644,root,root) %{_libdir}/xmms/General/libxmms_osd.la
 %{_includedir}/*.h
 %{_mandir}/man3/*.3*
