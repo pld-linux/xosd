@@ -1,25 +1,24 @@
-#
-# Conditional build:
-# _without_xmms		- without XMMS plugin
-#
+
+%bcond_without xmms	# without XMMS plugin
+
 Summary:	On Screen Display (like in TV) for X11
+Summary(es):	Subtítulos (como en la tele) para X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	2.2.2
-Release:	2
+Version:	2.2.5
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
-# Source0-md5:	b385858fb4ddeff0875fa5b4dc372e42
+# Source0-md5:	96bae6f0800c1710d7d4edb3b37b01e5
 URL:		http://www.ignavus.net/software.html
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gdk-pixbuf-devel >= 0.22.0
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	libtool
-%{!?_without_xmms:BuildRequires:	rpmbuild(macros) >= 1.125}
-%{!?_without_xmms:BuildRequires:	xmms-devel}
+%{?with_xmms:BuildRequires:	rpmbuild(macros) >= 1.125}
+%{?with_xmms:BuildRequires:	xmms-devel >= 1.2.7}
 Obsoletes:	libxosd2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,15 +27,23 @@ XOSD allows On Screen Displaying on your monitor under X11. It could
 show current volume while changing it, or information about new mail
 arrival. It has plugin for XMMS attached as an example what it can do.
 
+%description -l es
+XOSD permite mostrar subtítulos u otros mensajes en el monitor bajo
+X11. Podría ser usado para mostrar el volumen del sonido cuando éste
+sea cambiado, o bien una información sobre correo electrónico recién
+llegado. Hay un plugin para XMMS que puede servir como ejemplo de lo
+que se puede hacer.
+
 %description -l pl
-XOSD s³u¿y do wy¶wietlania na monitorze napisów w sposób podobny
-do tego jak to siê dzieje we wspó³czesnych telewizorach (OSD). Mo¿e on
+XOSD s³u¿y do wy¶wietlania na monitorze napisów w sposób podobny do
+tego jak to siê dzieje we wspó³czesnych telewizorach (OSD). Mo¿e on
 pokazywaæ aktualn± g³o¶no¶æ podczas jej zmieniania, albo informacje o
 nowej poczcie. Do programu zosta³a do³±czona wtyczka dla XMMS
 pokazuj±ca, co tak naprawdê potrafi XOSD.
 
 %package devel
 Summary:	Header files and documentation for developers of XOSD
+Summary(es):	Ficheros de cabecera y documentación de programadores para XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
@@ -45,11 +52,15 @@ Obsoletes:	libxosd2-devel
 %description devel
 Files allowing development of xosd-based applications.
 
+%description devel -l es
+Ficheros que permiten el desarrollo de aplicaciones basadas en xosd.
+
 %description devel -l pl
 Pliki pozwalaj±ce tworzyæ programy w oparciu o xosd.
 
 %package static
 Summary:	Static libraries for XOSD
+Summary(es):	Bibliotecas estáticas para XOSD
 Summary(pl):	Statyczne biblioteki dla XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
@@ -57,11 +68,15 @@ Requires:	%{name} = %{version}
 %description static
 Static libraries for XOSD.
 
+%description static -l es
+Bibliotecas estáticas para XOSD.
+
 %description static -l pl
 Statyczne biblioteki dla XOSD.
 
 %package -n xmms-general-xosd
 Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
+Summary(es):	Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
 Summary(pl):	Wtyczka dla XMMS, która umo¿liwa wy¶wietlanie informacji na ekranie (OSD)
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}
@@ -70,6 +85,10 @@ Requires:	xmms
 %description -n xmms-general-xosd
 Plugin for XMMS enabling On Screen Display (OSD) showing names of
 played files, volume, etc.
+
+%description -n xmms-general-xosd
+Plugin para XMMS que habilita mostrar sobre la pantalla los nombres de
+los ficheros reproducidos, el volumen, etc.
 
 %description -n xmms-general-xosd -l pl
 Wtyczka dla XMMS pokazuj±ca na ekranie (OSD) aktualne informacje o
@@ -86,8 +105,8 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-	%{!?_without_xmms:--with-plugindir=%{xmms_general_plugindir}} \
-	%{?_without_xmms:--disable-new-plugin}
+	%{?with_xmms:--with-plugindir=%{xmms_general_plugindir}} \
+	%{!?with_xmms:--disable-new-plugin}
 
 %{__make}
 
@@ -127,7 +146,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libxosd.a
 
-%if 0%{!?_without_xmms:1}
+%if %{with xmms}
 %files -n xmms-general-xosd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{xmms_general_plugindir}/libxmms_osd*.so*
