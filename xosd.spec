@@ -10,6 +10,7 @@ Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
+# Source0-md5: def0a24f0e2716f4e8c01308445605b3
 URL:		http://www.ignavus.net/software.html
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
