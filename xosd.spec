@@ -15,7 +15,7 @@ URL:		http://www.ignavus.net/software.html
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gdk-pixbuf-devel 
+BuildRequires:	gdk-pixbuf-devel >= 0.22.0
 BuildRequires:	gtk+-devel
 BuildRequires:	libtool
 %{!?_without_xmms:BuildRequires:	xmms-devel}
