@@ -40,7 +40,7 @@ que se puede hacer.
 XOSD s³u¿y do wy¶wietlania na monitorze napisów w sposób podobny do
 tego jak to siê dzieje we wspó³czesnych telewizorach (OSD). Mo¿e on
 pokazywaæ aktualn± g³o¶no¶æ podczas jej zmieniania, albo informacje o
-nowej poczcie. Do programu zosta³a do³±czona wtyczka dla XMMS
+nowej poczcie. Do programu zosta³a do³±czona wtyczka dla XMMS-a
 pokazuj±ca, co tak naprawdê potrafi XOSD.
 
 %package devel
@@ -80,7 +80,7 @@ Statyczne biblioteki dla XOSD.
 %package -n xmms-general-xosd
 Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
 Summary(es):	Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
-Summary(pl):	Wtyczka dla XMMS, która umo¿liwa wy¶wietlanie informacji na ekranie (OSD)
+Summary(pl):	Wtyczka dla XMMS-a, która umo¿liwa wy¶wietlanie informacji na ekranie (OSD)
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 Requires:	xmms >= 1.2.7
@@ -94,7 +94,7 @@ Plugin para XMMS que habilita mostrar sobre la pantalla los nombres de
 los ficheros reproducidos, el volumen, etc.
 
 %description -n xmms-general-xosd -l pl
-Wtyczka dla XMMS pokazuj±ca na ekranie (OSD) aktualne informacje o
+Wtyczka dla XMMS-a pokazuj±ca na ekranie (OSD) aktualne informacje o
 odgrywanej piosence, g³o¶no¶ci, itd.
 
 %prep
