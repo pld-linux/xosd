@@ -1,8 +1,8 @@
 Summary:	On Screen Display (like in TV) for X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	2.0.1
-Release:	4
+Version:	2.0.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
@@ -16,6 +16,7 @@ BuildRequires:	libtool
 BuildRequires:	xmms-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define			_xmms_plugin_dir	%(xmms-config --general-plugin-dir)
 
 %description
 XOSD allows On Screen Displaying on your monitor under X11. It could
@@ -78,12 +79,13 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-plugindir=%{_xmms_plugin_dir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_libdir}/xmms/General,%{_includedir},%{_mandir}/man3}
+install -d $RPM_BUILD_ROOT{%{_xmms_plugin_dir},%{_includedir},%{_mandir}/man3}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -104,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n xmms-general-xosd
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/xmms/General/libxmms_osd.so*
+%attr(755,root,root) %{_xmms_plugin_dir}/libxmms_osd.so*
 %dir %{_datadir}/xosd
 %{_datadir}/xosd/*.png
 
@@ -113,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xosd-config
 %{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/xmms/General/libxmms_osd.la
+%{_xmms_plugin_dir}/libxmms_osd.la
 %{_includedir}/*.h
 %{_aclocaldir}/libxosd.m4
 %{_mandir}/man3/*.3*
