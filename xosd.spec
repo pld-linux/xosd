@@ -6,15 +6,15 @@ Summary:	On Screen Display (like in TV) for X11
 Summary(es):	Subtítulos (como en la tele) para X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	2.2.5
-Release:	2
+Version:	2.2.8
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
-# Source0-md5:	96bae6f0800c1710d7d4edb3b37b01e5
+Source0:	http://www.ignavus.net/%{name}-%{version}.tar.bz2
+# Source0-md5:	85b00f6609603139855775d6213980cb
 Patch0:		%{name}-am18.patch
 URL:		http://www.ignavus.net/software.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	gdk-pixbuf-devel >= 0.22.0
 BuildRequires:	gtk+-devel >= 1.2.2
@@ -48,7 +48,7 @@ Summary:	Header files and documentation for developers of XOSD
 Summary(es):	Ficheros de cabecera y documentación de programadores para XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libxosd2-devel
 
 %description devel
@@ -65,7 +65,7 @@ Summary:	Static libraries for XOSD
 Summary(es):	Bibliotecas estáticas para XOSD
 Summary(pl):	Statyczne biblioteki dla XOSD
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description static
 Static libraries for XOSD.
@@ -81,8 +81,8 @@ Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
 Summary(es):	Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
 Summary(pl):	Wtyczka dla XMMS, która umo¿liwa wy¶wietlanie informacji na ekranie (OSD)
 Group:		X11/Applications/Sound
-Requires:	%{name} = %{version}
-Requires:	xmms
+Requires:	%{name} = %{version}-%{release}
+Requires:	xmms >= 1.2.7
 
 %description -n xmms-general-xosd
 Plugin for XMMS enabling On Screen Display (OSD) showing names of
