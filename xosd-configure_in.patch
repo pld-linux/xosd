@@ -1,0 +1,11 @@
+diff -urN aaa/xosd-2.1.1/configure.in xosd-2.1.1/configure.in
+--- aaa/xosd-2.1.1/configure.in	Mon Feb 17 22:18:38 2003
++++ xosd-2.1.1/configure.in	Wed Feb 19 13:19:39 2003
+@@ -152,7 +152,6 @@
+ src/Makefile
+ src/libxosd/Makefile
+ src/xmms_plugin/Makefile
+-src/xmms_plugin_oldplugin/Makefile
+ macros/Makefile
+ man/Makefile
+ pixmaps/Makefile
