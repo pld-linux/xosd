@@ -25,7 +25,7 @@ show current volume while changing it, or information about new mail
 arrival. It has plugin for XMMS attached as an example what it can do.
 
 %description -l pl
-XOSD s³u¿y do wy¶wietlania na Twoim monitorze napisów w sposób podobny
+XOSD s³u¿y do wy¶wietlania na monitorze napisów w sposób podobny
 do tego jak to siê dzieje we wspó³czesnych telewizorach (OSD). Mo¿e on
 pokazywaæ aktualn± g³o¶no¶æ podczas jej zmieniania, albo informacje o
 nowej poczcie. Do programu zosta³a do³±czona wtyczka dla XMMS
