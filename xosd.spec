@@ -1,16 +1,18 @@
-
-%bcond_without xmms	# without XMMS plugin
-
+#
+# Conditional build:
+%bcond_without	xmms	# without XMMS plugin
+#
 Summary:	On Screen Display (like in TV) for X11
 Summary(es):	Subtítulos (como en la tele) para X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.5
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.gz
 # Source0-md5:	96bae6f0800c1710d7d4edb3b37b01e5
+Patch0:		%{name}-am18.patch
 URL:		http://www.ignavus.net/software.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -95,11 +97,11 @@ Wtyczka dla XMMS pokazuj±ca na ekranie (OSD) aktualne informacje o
 odgrywanej piosence, g³o¶no¶ci, itd.
 
 %prep
-%setup  -q
+%setup -q
+%patch0 -p1
 
 %build
-rm -f missing
-%{?_without_xmms:echo 'AC_DEFUN([AM_PATH_XMMS],[])' >> acinclude.m4}
+%{!?with_xmms:echo 'AC_DEFUN([AM_PATH_XMMS],[])' >> acinclude.m4}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -118,6 +120,8 @@ install -d $RPM_BUILD_ROOT{%{xmms_general_plugindir},%{_includedir}} \
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
+
+rm -f $RPM_BUILD_ROOT%{xmms_general_plugindir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
