@@ -47,7 +47,7 @@ Requires:	%{name} = %{version}
 %description devel
 Files allowing development of xosd-based applications.
 
-%description -l pl devel
+%description devel -l pl
 Pliki pozwalaj±ce tworzyæ programy w oparciu o xosd.
 
 %package -n xmms-general-xosd
@@ -62,7 +62,7 @@ Requires:	%{name} = %{version}
 Plugin for XMMS enabling On Screen Display (OSD) showing names of
 played files, volume, etc.
 
-%description -l pl -n xmms-general-xosd
+%description -n xmms-general-xosd -l pl
 Wtyczka dla XMMS pokazuj±ca na ekranie (OSD) aktualne informacje o
 odgrywanej piosence, g³o¶no¶ci, itd.
 
@@ -74,19 +74,17 @@ odgrywanej piosence, g³o¶no¶ci, itd.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_libdir}/xmms/General,%{_includedir},%{_mandir}/man3}
 
-install -d $RPM_BUILD_ROOT%{_prefix}/{lib,include,lib/xmms/General,man/man3}
-
-install -s libxosd.so $RPM_BUILD_ROOT%{_libdir}
-install -s libxmms_osd.so $RPM_BUILD_ROOT%{_libdir}/xmms/General
+install libxosd.so $RPM_BUILD_ROOT%{_libdir}
+install libxmms_osd.so $RPM_BUILD_ROOT%{_libdir}/xmms/General
 install xosd.h $RPM_BUILD_ROOT%{_includedir}
 install xosd.3 $RPM_BUILD_ROOT%{_mandir}/man3
 
 gzip -9nf ChangeLog AUTHORS
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
