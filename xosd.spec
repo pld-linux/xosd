@@ -49,6 +49,7 @@ Summary(es):	Ficheros de cabecera y documentación de programadores para XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	XFree86-devel
 Obsoletes:	libxosd2-devel
 
 %description devel
