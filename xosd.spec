@@ -14,6 +14,7 @@ BuildRequires:	automake
 BuildRequires:	gtk+-devel
 BuildRequires:	libtool
 BuildRequires:	xmms-devel
+BuildRequires:	gdk-pixbuf-devel 
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libxosd2
 
