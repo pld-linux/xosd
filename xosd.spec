@@ -76,6 +76,7 @@ odgrywanej piosence, g³o¶no¶ci, itd.
 
 %build
 rm -f missing
+%{__libtoolize}
 %{__aclocal}
 autoconf
 %{__automake}
