@@ -11,8 +11,8 @@ URL:		http://www.ignavus.net/software.html
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	gtk+-devel
+BuildRequires:	libtool
 BuildRequires:	xmms-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,7 +58,7 @@ Statyczne biblioteki dla XOSD.
 %package -n xmms-general-xosd
 Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
 Summary(pl):	Wtyczka dla XMMS, która umo¿liwa wy¶wietlanie informacji na ekranie (OSD)
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}
 Requires:	xmms
 
@@ -78,7 +78,7 @@ odgrywanej piosence, g³o¶no¶ci, itd.
 rm -f missing
 %{__libtoolize}
 %{__aclocal}
-autoconf
+%{__autoconf}
 %{__automake}
 %configure
 %{__make}
@@ -91,11 +91,11 @@ install -d $RPM_BUILD_ROOT{%{_libdir}/xmms/General,%{_includedir},%{_mandir}/man
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
