@@ -107,7 +107,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -n xmms-general-xosd
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/xmms/General/libxmms_osd.so*
-%attr(755,root,root) %{_datadir}/xosd/*.png
+%dir %{_datadir}/xosd
+%{_datadir}/xosd/*.png
 
 %files devel
 %defattr(644,root,root,755)
