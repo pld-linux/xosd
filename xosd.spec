@@ -111,9 +111,9 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xosd-config
-%attr(755,root,root) %{_libdir}/*.la
+%{_libdir}/*.la
 %attr(755,root,root) %{_libdir}/*.so
-%attr(755,root,root) %{_libdir}/xmms/General/libxmms_osd.la
+%{_libdir}/xmms/General/libxmms_osd.la
 %attr(755,root,root) %{_datadir}/xosd/*.png
 %{_includedir}/*.h
 %{_aclocaldir}/libxosd.m4
