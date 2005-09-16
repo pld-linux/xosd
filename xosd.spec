@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog AUTHORS NEWS README
+%doc ChangeLog AUTHORS README
 %attr(755,root,root) %{_bindir}/osd_cat
 %attr(755,root,root) %{_libdir}/libxosd.so.*.*.*
 %{_mandir}/man1/osd_cat.1*
