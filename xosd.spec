@@ -21,6 +21,8 @@ BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	libtool
 %{?with_xmms:BuildRequires:	rpmbuild(macros) >= 1.125}
 %{?with_xmms:BuildRequires:	xmms-devel >= 1.2.7}
+BuildRequires:	xorg-lib-libXinerama-devel
+BuildRequires:	xorg-lib-libXt-devel
 Obsoletes:	libxosd2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
