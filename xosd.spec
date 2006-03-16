@@ -49,10 +49,6 @@ Summary(es):	Ficheros de cabecera y documentación de programadores para XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	xorg-lib-libICE-devel
-Requires:	xorg-lib-libSM-devel
-Requires:	xorg-lib-libX11-devel
-Requires:	xorg-lib-libXext-devel
 Requires:	xorg-lib-libXinerama-devel
 Requires:	xorg-lib-libXt-devel
 Obsoletes:	libxosd2-devel
