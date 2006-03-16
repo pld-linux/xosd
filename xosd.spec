@@ -7,7 +7,7 @@ Summary(es):	Subtítulos (como en la tele) para X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.12
-Release:	2
+Release:	2.1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.bz2
@@ -49,7 +49,12 @@ Summary(es):	Ficheros de cabecera y documentación de programadores para XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	XFree86-devel
+Requires:	xorg-lib-libICE-devel
+Requires:	xorg-lib-libSM-devel
+Requires:	xorg-lib-libX11-devel
+Requires:	xorg-lib-libXext-devel
+Requires:	xorg-lib-libXinerama-devel
+Requires:	xorg-lib-libXt-devel
 Obsoletes:	libxosd2-devel
 
 %description devel
