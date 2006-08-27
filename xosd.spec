@@ -7,22 +7,25 @@ Summary(es):	Subtítulos (como en la tele) para X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.12
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.bz2
 # Source0-md5:	756d714cec908e4d4c956ff0e7dcd4c4
 Patch0:		%{name}-am18.patch
+Patch1:		%{name}-link.patch
 URL:		http://www.ignavus.net/software.html
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
+BuildRequires:	libtool
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXinerama-devel
+%if %{with xmms}
 BuildRequires:	gdk-pixbuf-devel >= 0.22.0
 BuildRequires:	gtk+-devel >= 1.2.2
-BuildRequires:	libtool
-%{?with_xmms:BuildRequires:	rpmbuild(macros) >= 1.125}
-%{?with_xmms:BuildRequires:	xmms-devel >= 1.2.7}
-BuildRequires:	xorg-lib-libXinerama-devel
-BuildRequires:	xorg-lib-libXt-devel
+BuildRequires:	rpmbuild(macros) >= 1.125
+BuildRequires:	xmms-devel >= 1.2.7
+%endif
 Obsoletes:	libxosd2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,8 +54,8 @@ Summary(es):	Ficheros de cabecera y documentación de programadores para XOSD
 Summary(pl):	Pliki nag³ówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	xorg-lib-libXext-devel
 Requires:	xorg-lib-libXinerama-devel
-Requires:	xorg-lib-libXt-devel
 Obsoletes:	libxosd2-devel
 
 %description devel
@@ -103,6 +106,7 @@ odgrywanej piosence, g³o¶no¶ci, itd.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{!?with_xmms:echo 'AC_DEFUN([AM_PATH_XMMS],[])' >> acinclude.m4}
