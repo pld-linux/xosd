@@ -7,7 +7,7 @@ Summary(es):	Subtítulos (como en la tele) para X11
 Summary(pl):	Wy¶wietlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.12
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.bz2
