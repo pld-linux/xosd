@@ -3,8 +3,8 @@
 %bcond_without	xmms	# without XMMS plugin
 #
 Summary:	On Screen Display (like in TV) for X11
-Summary(es):	SubtÌtulos (como en la tele) para X11
-Summary(pl):	Wy∂wietlanie napisÛw na ekranie podobnie jak w telewizorach (OSD)
+Summary(es.UTF-8):   Subt√≠tulos (como en la tele) para X11
+Summary(pl.UTF-8):   Wy≈õwietlanie napis√≥w na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.12
 Release:	5
@@ -34,24 +34,24 @@ XOSD allows On Screen Displaying on your monitor under X11. It could
 show current volume while changing it, or information about new mail
 arrival. It has plugin for XMMS attached as an example what it can do.
 
-%description -l es
-XOSD permite mostrar subtÌtulos u otros mensajes en el monitor bajo
-X11. PodrÌa ser usado para mostrar el volumen del sonido cuando Èste
-sea cambiado, o bien una informaciÛn sobre correo electrÛnico reciÈn
+%description -l es.UTF-8
+XOSD permite mostrar subt√≠tulos u otros mensajes en el monitor bajo
+X11. Podr√≠a ser usado para mostrar el volumen del sonido cuando √©ste
+sea cambiado, o bien una informaci√≥n sobre correo electr√≥nico reci√©n
 llegado. Hay un plugin para XMMS que puede servir como ejemplo de lo
 que se puede hacer.
 
-%description -l pl
-XOSD s≥uøy do wy∂wietlania na monitorze napisÛw w sposÛb podobny do
-tego jak to siÍ dzieje we wspÛ≥czesnych telewizorach (OSD). Moøe on
-pokazywaÊ aktualn± g≥o∂no∂Ê podczas jej zmieniania, albo informacje o
-nowej poczcie. Do programu zosta≥a do≥±czona wtyczka dla XMMS-a
-pokazuj±ca, co tak naprawdÍ potrafi XOSD.
+%description -l pl.UTF-8
+XOSD s≈Çu≈ºy do wy≈õwietlania na monitorze napis√≥w w spos√≥b podobny do
+tego jak to siƒô dzieje we wsp√≥≈Çczesnych telewizorach (OSD). Mo≈ºe on
+pokazywaƒá aktualnƒÖ g≈Ço≈õno≈õƒá podczas jej zmieniania, albo informacje o
+nowej poczcie. Do programu zosta≈Ça do≈ÇƒÖczona wtyczka dla XMMS-a
+pokazujƒÖca, co tak naprawdƒô potrafi XOSD.
 
 %package devel
 Summary:	Header files and documentation for developers of XOSD
-Summary(es):	Ficheros de cabecera y documentaciÛn de programadores para XOSD
-Summary(pl):	Pliki nag≥Ûwkowe oraz dokumentcja dla programistÛw XOSD
+Summary(es.UTF-8):   Ficheros de cabecera y documentaci√≥n de programadores para XOSD
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe oraz dokumentcja dla programist√≥w XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXext-devel
@@ -61,32 +61,32 @@ Obsoletes:	libxosd2-devel
 %description devel
 Files allowing development of xosd-based applications.
 
-%description devel -l es
+%description devel -l es.UTF-8
 Ficheros que permiten el desarrollo de aplicaciones basadas en xosd.
 
-%description devel -l pl
-Pliki pozwalaj±ce tworzyÊ programy w oparciu o xosd.
+%description devel -l pl.UTF-8
+Pliki pozwalajƒÖce tworzyƒá programy w oparciu o xosd.
 
 %package static
 Summary:	Static libraries for XOSD
-Summary(es):	Bibliotecas est·ticas para XOSD
-Summary(pl):	Statyczne biblioteki dla XOSD
+Summary(es.UTF-8):   Bibliotecas est√°ticas para XOSD
+Summary(pl.UTF-8):   Statyczne biblioteki dla XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description static
 Static libraries for XOSD.
 
-%description static -l es
-Bibliotecas est·ticas para XOSD.
+%description static -l es.UTF-8
+Bibliotecas est√°ticas para XOSD.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki dla XOSD.
 
 %package -n xmms-general-xosd
 Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
-Summary(es):	Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
-Summary(pl):	Wtyczka dla XMMS-a, ktÛra umoøliwa wy∂wietlanie informacji na ekranie (OSD)
+Summary(es.UTF-8):   Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
+Summary(pl.UTF-8):   Wtyczka dla XMMS-a, kt√≥ra umo≈ºliwa wy≈õwietlanie informacji na ekranie (OSD)
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 Requires:	xmms >= 1.2.7
@@ -95,13 +95,13 @@ Requires:	xmms >= 1.2.7
 Plugin for XMMS enabling On Screen Display (OSD) showing names of
 played files, volume, etc.
 
-%description -n xmms-general-xosd -l es
+%description -n xmms-general-xosd -l es.UTF-8
 Plugin para XMMS que habilita mostrar sobre la pantalla los nombres de
 los ficheros reproducidos, el volumen, etc.
 
-%description -n xmms-general-xosd -l pl
-Wtyczka dla XMMS-a pokazuj±ca na ekranie (OSD) aktualne informacje o
-odgrywanej piosence, g≥o∂no∂ci, itd.
+%description -n xmms-general-xosd -l pl.UTF-8
+Wtyczka dla XMMS-a pokazujƒÖca na ekranie (OSD) aktualne informacje o
+odgrywanej piosence, g≈Ço≈õno≈õci, itd.
 
 %prep
 %setup -q
