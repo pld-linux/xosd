@@ -3,8 +3,8 @@
 %bcond_without	xmms	# without XMMS plugin
 #
 Summary:	On Screen Display (like in TV) for X11
-Summary(es.UTF-8):   Subtítulos (como en la tele) para X11
-Summary(pl.UTF-8):   Wyświetlanie napisów na ekranie podobnie jak w telewizorach (OSD)
+Summary(es.UTF-8):	Subtítulos (como en la tele) para X11
+Summary(pl.UTF-8):	Wyświetlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.12
 Release:	5
@@ -50,8 +50,8 @@ pokazująca, co tak naprawdę potrafi XOSD.
 
 %package devel
 Summary:	Header files and documentation for developers of XOSD
-Summary(es.UTF-8):   Ficheros de cabecera y documentación de programadores para XOSD
-Summary(pl.UTF-8):   Pliki nagłówkowe oraz dokumentcja dla programistów XOSD
+Summary(es.UTF-8):	Ficheros de cabecera y documentación de programadores para XOSD
+Summary(pl.UTF-8):	Pliki nagłówkowe oraz dokumentcja dla programistów XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXext-devel
@@ -69,8 +69,8 @@ Pliki pozwalające tworzyć programy w oparciu o xosd.
 
 %package static
 Summary:	Static libraries for XOSD
-Summary(es.UTF-8):   Bibliotecas estáticas para XOSD
-Summary(pl.UTF-8):   Statyczne biblioteki dla XOSD
+Summary(es.UTF-8):	Bibliotecas estáticas para XOSD
+Summary(pl.UTF-8):	Statyczne biblioteki dla XOSD
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -85,8 +85,8 @@ Statyczne biblioteki dla XOSD.
 
 %package -n xmms-general-xosd
 Summary:	Plugin for XMMS that allows On Screen Displaying (OSD)
-Summary(es.UTF-8):   Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
-Summary(pl.UTF-8):   Wtyczka dla XMMS-a, która umożliwa wyświetlanie informacji na ekranie (OSD)
+Summary(es.UTF-8):	Plugin para XMMS que permite mostrar informaciones en la pantalla (OSD)
+Summary(pl.UTF-8):	Wtyczka dla XMMS-a, która umożliwa wyświetlanie informacji na ekranie (OSD)
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 Requires:	xmms >= 1.2.7
