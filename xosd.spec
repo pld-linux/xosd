@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_without	xmms	# without XMMS plugin
+%bcond_without	static_libs	# don't build static libraries
+%bcond_without	xmms		# without XMMS plugin
 #
 Summary:	On Screen Display (like in TV) for X11
 Summary(es.UTF-8):	Subtítulos (como en la tele) para X11
@@ -116,7 +117,8 @@ odgrywanej piosence, głośności, itd.
 %{__automake}
 %configure \
 	%{?with_xmms:--with-plugindir=%{xmms_general_plugindir}} \
-	%{!?with_xmms:--disable-new-plugin}
+	%{!?with_xmms:--disable-new-plugin} \
+	%{!?with_static_libs:--disable-static}
 
 %{__make}
 
@@ -154,9 +156,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/*.3*
 %{_mandir}/man1/xosd-config.1*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libxosd.a
+%endif
 
 %if %{with xmms}
 %files -n xmms-general-xosd
