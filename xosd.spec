@@ -8,13 +8,14 @@ Summary(es.UTF-8):	Subtítulos (como en la tele) para X11
 Summary(pl.UTF-8):	Wyświetlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.12
-Release:	6
+Release:	7
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://www.ignavus.net/%{name}-%{version}.tar.bz2
 # Source0-md5:	756d714cec908e4d4c956ff0e7dcd4c4
 Patch0:		%{name}-am18.patch
 Patch1:		%{name}-link.patch
+Patch2:		%{name}-ac.patch
 URL:		http://www.ignavus.net/software.html
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
@@ -108,6 +109,7 @@ odgrywanej piosence, głośności, itd.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 %build
 %{!?with_xmms:echo 'AC_DEFUN([AM_PATH_XMMS],[])' >> acinclude.m4}
