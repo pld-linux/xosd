@@ -1,0 +1,10 @@
+--- configure.ac~	2008-11-11 16:00:57.361403604 +0100
++++ configure.ac	2008-11-11 16:01:50.930982354 +0100
+@@ -45,6 +45,7 @@
+ # We need two libtools, one that builds both shared and static, and
+ # one that builds only static.  This is because the resulting libtool
+ # does not allow us to choose which to build at runtime.
++m4_ifdef([LT_OUTPUT], [LT_OUTPUT])
+ sed -e 's/^build_old_libs=yes/build_old_libs=no/' libtool > libtool-disable-static
+ chmod +x libtool-disable-static
+ 
