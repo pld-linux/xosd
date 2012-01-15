@@ -1,3 +1,4 @@
+# TODO: bmp plugin?
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
@@ -7,27 +8,28 @@ Summary:	On Screen Display (like in TV) for X11
 Summary(es.UTF-8):	Subtítulos (como en la tele) para X11
 Summary(pl.UTF-8):	Wyświetlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
-Version:	2.2.12
-Release:	7
+Version:	2.2.14
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://www.ignavus.net/%{name}-%{version}.tar.bz2
-# Source0-md5:	756d714cec908e4d4c956ff0e7dcd4c4
+Source0:	http://downloads.sourceforge.net/libxosd/%{name}-%{version}.tar.gz
+# Source0-md5:	4b349fe930e4eee2f504d6c02673e24d
 Patch0:		%{name}-am18.patch
-Patch1:		%{name}-link.patch
-Patch2:		%{name}-ac.patch
-URL:		http://www.ignavus.net/software.html
+Patch1:		%{name}-ac.patch
+Patch2:		%{name}-install.patch
+URL:		http://sourceforge.net/projects/libxosd/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	xorg-lib-libXext-devel
-BuildRequires:	xorg-lib-libXinerama-devel
 %if %{with xmms}
 BuildRequires:	gdk-pixbuf-devel >= 0.22.0
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	rpmbuild(macros) >= 1.125
 BuildRequires:	xmms-devel >= 1.2.7
 %endif
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXinerama-devel
 Obsoletes:	libxosd2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -108,8 +110,8 @@ odgrywanej piosence, głośności, itd.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
+%patch1 -p0
+%patch2 -p1
 
 %build
 %{!?with_xmms:echo 'AC_DEFUN([AM_PATH_XMMS],[])' >> acinclude.m4}
@@ -133,7 +135,7 @@ install -d $RPM_BUILD_ROOT{%{xmms_general_plugindir},%{_includedir}} \
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-rm -f $RPM_BUILD_ROOT%{xmms_general_plugindir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{xmms_general_plugindir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -146,16 +148,17 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog AUTHORS README
 %attr(755,root,root) %{_bindir}/osd_cat
 %attr(755,root,root) %{_libdir}/libxosd.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libxosd.so.2
 %{_mandir}/man1/osd_cat.1*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xosd-config
-%attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
-%{_includedir}/*.h
+%attr(755,root,root) %{_libdir}/libxosd.so
+%{_libdir}/libxosd.la
+%{_includedir}/xosd.h
 %{_aclocaldir}/libxosd.m4
-%{_mandir}/man3/*.3*
+%{_mandir}/man3/xosd*.3*
 %{_mandir}/man1/xosd-config.1*
 
 %if %{with static_libs}
@@ -167,7 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with xmms}
 %files -n xmms-general-xosd
 %defattr(644,root,root,755)
-%attr(755,root,root) %{xmms_general_plugindir}/libxmms_osd*.so*
+%attr(755,root,root) %{xmms_general_plugindir}/libxmms_osd.so
 %dir %{_datadir}/xosd
 %{_datadir}/xosd/*.png
 %endif
