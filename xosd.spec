@@ -1,15 +1,15 @@
 # TODO: bmp plugin?
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static libraries
-%bcond_without	xmms		# without XMMS plugin
+%bcond_without	static_libs	# static library
+%bcond_without	xmms		# XMMS plugin
 #
 Summary:	On Screen Display (like in TV) for X11
 Summary(es.UTF-8):	Subtítulos (como en la tele) para X11
 Summary(pl.UTF-8):	Wyświetlanie napisów na ekranie podobnie jak w telewizorach (OSD)
 Name:		xosd
 Version:	2.2.14
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/libxosd/%{name}-%{version}.tar.gz
@@ -147,14 +147,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog AUTHORS README
 %attr(755,root,root) %{_bindir}/osd_cat
-%attr(755,root,root) %{_libdir}/libxosd.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libxosd.so.2
+%{_libdir}/libxosd.so.*.*.*
+%ghost %{_libdir}/libxosd.so.2
 %{_mandir}/man1/osd_cat.1*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xosd-config
-%attr(755,root,root) %{_libdir}/libxosd.so
+%{_libdir}/libxosd.so
 %{_libdir}/libxosd.la
 %{_includedir}/xosd.h
 %{_aclocaldir}/libxosd.m4
@@ -170,7 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with xmms}
 %files -n xmms-general-xosd
 %defattr(644,root,root,755)
-%attr(755,root,root) %{xmms_general_plugindir}/libxmms_osd.so
+%{xmms_general_plugindir}/libxmms_osd.so
 %dir %{_datadir}/xosd
 %{_datadir}/xosd/*.png
 %endif
